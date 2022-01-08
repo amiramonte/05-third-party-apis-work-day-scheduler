@@ -3,6 +3,16 @@ let dateLocation = $('#currentDay');
 
 let currentTime = moment().format('HH');
 
+let nineSaveBtn = $('#9am-button');
+let tenSaveBtn = $('#10am-button');
+let elevenSaveBtn = $('#11am-button');
+let twelveSaveBtn = $('#12pm-button');
+let oneSaveBtn = $('#1pm-button');
+let twoSaveBtn = $('#2pm-button');
+let threeSaveBtn = $('#3pm-button');
+let fourSaveBtn = $('#4pm-button');
+let fiveSaveBtn = $('#5pm-button');
+
 let nineTasks = $('#9am-tasks');
 
 // FUNCTIONS
@@ -14,15 +24,7 @@ function dateCreate() {
 dateCreate();
 
 
-function saveHourlyTasks () {
-    
-}
-
-
-
-
-
-
+// conditional statements to apply appropriate text area color depending on time of day
 
 if (currentTime == 9) {
     $('#9am-tasks').addClass("present");
@@ -96,4 +98,38 @@ if (currentTime == 17) {
     $('#5pm-tasks').addClass("future");
 }
 
+nineSaveBtn.click(function() {
+    console.log("hello world");
+})
 
+tenSaveBtn.click(function() {
+    console.log("Bob Dobolina");
+})
+
+elevenSaveBtn.click(function() {
+    console.log("Nope! Chuck Testa");
+})
+
+twelveSaveBtn.click(function() {
+    console.log("All your base are belong to us");
+})
+
+oneSaveBtn.click(function() {
+    console.log("Numa Numa");
+})
+
+twoSaveBtn.click(function() {
+    console.log("The whistles go wooooo");
+})
+
+threeSaveBtn.click(function() {
+    console.log("get pitted, so pitted");
+})
+
+fourSaveBtn.click(function() {
+    console.log("more dots more dots");
+})
+
+fiveSaveBtn.click(function() {
+    console.log("Leroy Jenkins");
+})
