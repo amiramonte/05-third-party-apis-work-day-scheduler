@@ -3,6 +3,7 @@ let dateLocation = $('#currentDay');
 
 let currentTime = moment().format('HH');
 
+let nineTasks = $('#9am-tasks');
 
 // FUNCTIONS
 
@@ -11,6 +12,17 @@ function dateCreate() {
 }
 
 dateCreate();
+
+
+function saveHourlyTasks () {
+    
+}
+
+
+
+
+
+
 
 if (currentTime == 9) {
     $('#9am-tasks').addClass("present");
@@ -83,3 +95,5 @@ if (currentTime == 17) {
 } else {
     $('#5pm-tasks').addClass("future");
 }
+
+
