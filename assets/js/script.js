@@ -99,7 +99,7 @@ if (currentTime == 17) {
 
 
 
-// click functions for the save button on each hour
+// click functions for the save button on each hour that commit the value of text area to local storage, along with code that allows the same information to be retrived from local storage and appended back to the text area on page reload
 
 nineSaveBtn.click(function() {
     console.log("hello world");
@@ -158,18 +158,43 @@ $('#1pm-tasks').append(oneInfo);
 
 twoSaveBtn.click(function() {
     console.log("The whistles go wooooo");
+    let twoTasks = $('#2pm-tasks').val();
+
+    localStorage.setItem("twoScheduler", twoTasks);
 })
+
+let twoInfo = localStorage.getItem("twoScheduler");
+$('#2pm-tasks').append(twoInfo);
+
 
 threeSaveBtn.click(function() {
     console.log("get pitted, so pitted");
+    let threeTasks = $('#3pm-tasks').val();
+
+    localStorage.setItem("threeScheduler", threeTasks);
 })
+
+let threeInfo = localStorage.getItem("threeScheduler");
+$('#3pm-tasks').append(threeInfo);
+
 
 fourSaveBtn.click(function() {
     console.log("more dots more dots");
+    let fourTasks = $('#4pm-tasks').val();
+
+    localStorage.setItem("fourScheduler", fourTasks);
 })
+
+let fourInfo = localStorage.getItem("fourScheduler");
+$('#4pm-tasks').append(fourInfo);
+
 
 fiveSaveBtn.click(function() {
     console.log("Leroy Jenkins");
+    let fiveTasks = $('#5pm-tasks').val();
+
+    localStorage.setItem("fiveScheduler", fiveTasks);
 })
 
-
+let fiveInfo = localStorage.getItem("fiveScheduler");
+$('#5pm-tasks').append(fiveInfo);
