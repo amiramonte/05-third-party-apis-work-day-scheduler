@@ -13,7 +13,6 @@ let threeSaveBtn = $('#3pm-button');
 let fourSaveBtn = $('#4pm-button');
 let fiveSaveBtn = $('#5pm-button');
 
-let nineTasks = $('#9am-tasks');
 
 // FUNCTIONS
 
@@ -98,25 +97,64 @@ if (currentTime == 17) {
     $('#5pm-tasks').addClass("future");
 }
 
+
+
+// click functions for the save button on each hour
+
 nineSaveBtn.click(function() {
     console.log("hello world");
+    let nineTasks = $('#9am-tasks').val();
+
+    localStorage.setItem("nineScheduler", nineTasks);
 })
+
+let nineInfo = localStorage.getItem("nineScheduler");
+$('#9am-tasks').append(nineInfo);
+
+
 
 tenSaveBtn.click(function() {
     console.log("Bob Dobolina");
+    let tenTasks = $('#10am-tasks').val();
+
+    localStorage.setItem("tenScheduler", tenTasks);
 })
+
+let tenInfo = localStorage.getItem("tenScheduler");
+$('#10am-tasks').append(tenInfo);
+
 
 elevenSaveBtn.click(function() {
     console.log("Nope! Chuck Testa");
+    let elevenTasks = $('#11am-tasks').val();
+
+    localStorage.setItem("elevenScheduler", elevenTasks);
 })
+
+let elevenInfo = localStorage.getItem("elevenScheduler");
+$('#11am-tasks').append(elevenInfo);
+
 
 twelveSaveBtn.click(function() {
     console.log("All your base are belong to us");
+    let twelveTasks = $('#12pm-tasks').val();
+
+    localStorage.setItem("twelveScheduler", twelveTasks);
 })
+
+let twelveInfo = localStorage.getItem("twelveScheduler");
+$('#12pm-tasks').append(twelveInfo);
 
 oneSaveBtn.click(function() {
     console.log("Numa Numa");
+    let oneTasks = $('#1pm-tasks').val();
+
+    localStorage.setItem("oneScheduler", oneTasks);
 })
+
+let oneInfo = localStorage.getItem("oneScheduler");
+$('#1pm-tasks').append(oneInfo);
+
 
 twoSaveBtn.click(function() {
     console.log("The whistles go wooooo");
@@ -133,3 +171,5 @@ fourSaveBtn.click(function() {
 fiveSaveBtn.click(function() {
     console.log("Leroy Jenkins");
 })
+
+
