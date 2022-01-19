@@ -1,7 +1,7 @@
 // VARIABLES
 let dateLocation = $('#currentDay');
 
-let currentTime = moment().format('HH');
+
 
 let nineSaveBtn = $('#9am-button');
 let tenSaveBtn = $('#10am-button');
@@ -23,178 +23,215 @@ function dateCreate() {
 dateCreate();
 
 
+function timeTracker() {
+    let currentHour = parseInt(moment().format('HH'));
+
+    $('.time-block').each(function() {
+        let rowHour = parseInt($(this).attr('id'))
+        console.log(rowHour, currentHour)
+        if (rowHour < currentHour) {
+            $(this).children('textarea').addClass("past");
+        }else if (rowHour === currentHour) {
+            $(this).children('textarea').removeClass("past").addClass("present");
+        } else {
+            $(this).children('textarea').addClass("future")
+        }
+    })
+}
+
+timeTracker();
+
+
+
+
 // conditional statements to apply appropriate text area color depending on time of day
 
-if (currentTime == 9) {
-    $('#9am-tasks').addClass("present");
-} else if (currentTime > 9) {
-    $('#9am-tasks').addClass("past");
-} else {
-    $('#9am-tasks').addClass("future");
-}
+// if (currentTime == 9) {
+//     $('#9am-tasks').addClass("present");
+// } else if (currentTime > 9) {
+//     $('#9am-tasks').addClass("past");
+// } else {
+//     $('#9am-tasks').addClass("future");
+// }
 
-if (currentTime == 10) {
-    $('#10am-tasks').addClass("present");
-} else if (currentTime > 10) {
-    $('#10am-tasks').addClass("past");
-} else {
-    $('#10am-tasks').addClass("future");
-}
+// if (currentTime == 10) {
+//     $('#10am-tasks').addClass("present");
+// } else if (currentTime > 10) {
+//     $('#10am-tasks').addClass("past");
+// } else {
+//     $('#10am-tasks').addClass("future");
+// }
 
-if (currentTime == 11) {
-    $('#11am-tasks').addClass("present");
-} else if (currentTime > 11) {
-    $('#11am-tasks').addClass("past");
-} else {
-    $('#11am-tasks').addClass("future");
-}
+// if (currentTime == 11) {
+//     $('#11am-tasks').addClass("present");
+// } else if (currentTime > 11) {
+//     $('#11am-tasks').addClass("past");
+// } else {
+//     $('#11am-tasks').addClass("future");
+// }
 
-if (currentTime == 12) {
-    $('#12pm-tasks').addClass("present");
-} else if (currentTime > 12) {
-    $('#12pm-tasks').addClass("past");
-} else {
-    $('#12pm-tasks').addClass("future");
-}
+// if (currentTime == 12) {
+//     $('#12pm-tasks').addClass("present");
+// } else if (currentTime > 12) {
+//     $('#12pm-tasks').addClass("past");
+// } else {
+//     $('#12pm-tasks').addClass("future");
+// }
 
-if (currentTime == 13) {
-    $('#1pm-tasks').addClass("present");
-} else if (currentTime > 13) {
-    $('#1pm-tasks').addClass("past");
-} else {
-    $('#1pm-tasks').addClass("future");
-}
+// if (currentTime == 13) {
+//     $('#1pm-tasks').addClass("present");
+// } else if (currentTime > 13) {
+//     $('#1pm-tasks').addClass("past");
+// } else {
+//     $('#1pm-tasks').addClass("future");
+// }
 
-if (currentTime == 14) {
-    $('#2pm-tasks').addClass("present");
-} else if (currentTime > 14) {
-    $('#2pm-tasks').addClass("past");
-} else {
-    $('#2pm-tasks').addClass("future");
-}
+// if (currentTime == 14) {
+//     $('#2pm-tasks').addClass("present");
+// } else if (currentTime > 14) {
+//     $('#2pm-tasks').addClass("past");
+// } else {
+//     $('#2pm-tasks').addClass("future");
+// }
 
-if (currentTime == 15) {
-    $('#3pm-tasks').addClass("present");
-} else if (currentTime > 15) {
-    $('#3pm-tasks').addClass("past");
-} else {
-    $('#3pm-tasks').addClass("future");
-}
+// if (currentTime == 15) {
+//     $('#3pm-tasks').addClass("present");
+// } else if (currentTime > 15) {
+//     $('#3pm-tasks').addClass("past");
+// } else {
+//     $('#3pm-tasks').addClass("future");
+// }
 
-if (currentTime == 16) {
-    $('#4pm-tasks').addClass("present");
-} else if (currentTime > 16) {
-    $('#4pm-tasks').addClass("past");
-} else {
-    $('#4pm-tasks').addClass("future");
-}
+// if (currentTime == 16) {
+//     $('#4pm-tasks').addClass("present");
+// } else if (currentTime > 16) {
+//     $('#4pm-tasks').addClass("past");
+// } else {
+//     $('#4pm-tasks').addClass("future");
+// }
 
-if (currentTime == 17) {
-    $('#5pm-tasks').addClass("present");
-} else if (currentTime > 17) {
-    $('#5pm-tasks').addClass("past");
-} else {
-    $('#5pm-tasks').addClass("future");
-}
+// if (currentTime == 17) {
+//     $('#5pm-tasks').addClass("present");
+// } else if (currentTime > 17) {
+//     $('#5pm-tasks').addClass("past");
+// } else {
+//     $('#5pm-tasks').addClass("future");
+// }
 
 
 
 // click functions for the save button on each hour that commit the value of text area to local storage, along with code that allows the same information to be retrived from local storage and appended back to the text area on page reload
 
-nineSaveBtn.click(function() {
-    console.log("hello world");
-    let nineTasks = $('#9am-tasks').val();
+$('.saveBtn').on('click', function() {
+    const time = $(this).parent().attr('id')
+    const textArea = $(this).siblings('textarea').val();
 
-    localStorage.setItem("nineScheduler", nineTasks);
+    localStorage.setItem(time, textArea);
+
+    console.log(time, textArea);
+
 })
 
-let nineInfo = localStorage.getItem("nineScheduler");
-$('#9am-tasks').append(nineInfo);
+$('#9 .description').val(localStorage.getItem('9'))
+$('#10 .description').val(localStorage.getItem('10'))
 
 
 
-tenSaveBtn.click(function() {
-    console.log("Bob Dobolina");
-    let tenTasks = $('#10am-tasks').val();
 
-    localStorage.setItem("tenScheduler", tenTasks);
-})
+// nineSaveBtn.click(function() {
+//     console.log("hello world");
+//     let nineTasks = $('#9am-tasks').val();
 
-let tenInfo = localStorage.getItem("tenScheduler");
-$('#10am-tasks').append(tenInfo);
+//     localStorage.setItem("nineScheduler", nineTasks);
+// })
 
-
-elevenSaveBtn.click(function() {
-    console.log("Nope! Chuck Testa");
-    let elevenTasks = $('#11am-tasks').val();
-
-    localStorage.setItem("elevenScheduler", elevenTasks);
-})
-
-let elevenInfo = localStorage.getItem("elevenScheduler");
-$('#11am-tasks').append(elevenInfo);
+// let nineInfo = localStorage.getItem("nineScheduler");
+// $('#9am-tasks').append(nineInfo);
 
 
-twelveSaveBtn.click(function() {
-    console.log("All your base are belong to us");
-    let twelveTasks = $('#12pm-tasks').val();
 
-    localStorage.setItem("twelveScheduler", twelveTasks);
-})
+// tenSaveBtn.click(function() {
+//     console.log("Bob Dobolina");
+//     let tenTasks = $('#10am-tasks').val();
 
-let twelveInfo = localStorage.getItem("twelveScheduler");
-$('#12pm-tasks').append(twelveInfo);
+//     localStorage.setItem("tenScheduler", tenTasks);
+// })
 
-oneSaveBtn.click(function() {
-    console.log("Numa Numa");
-    let oneTasks = $('#1pm-tasks').val();
-
-    localStorage.setItem("oneScheduler", oneTasks);
-})
-
-let oneInfo = localStorage.getItem("oneScheduler");
-$('#1pm-tasks').append(oneInfo);
+// let tenInfo = localStorage.getItem("tenScheduler");
+// $('#10am-tasks').append(tenInfo);
 
 
-twoSaveBtn.click(function() {
-    console.log("The whistles go wooooo");
-    let twoTasks = $('#2pm-tasks').val();
+// elevenSaveBtn.click(function() {
+//     console.log("Nope! Chuck Testa");
+//     let elevenTasks = $('#11am-tasks').val();
 
-    localStorage.setItem("twoScheduler", twoTasks);
-})
+//     localStorage.setItem("elevenScheduler", elevenTasks);
+// })
 
-let twoInfo = localStorage.getItem("twoScheduler");
-$('#2pm-tasks').append(twoInfo);
-
-
-threeSaveBtn.click(function() {
-    console.log("get pitted, so pitted");
-    let threeTasks = $('#3pm-tasks').val();
-
-    localStorage.setItem("threeScheduler", threeTasks);
-})
-
-let threeInfo = localStorage.getItem("threeScheduler");
-$('#3pm-tasks').append(threeInfo);
+// let elevenInfo = localStorage.getItem("elevenScheduler");
+// $('#11am-tasks').append(elevenInfo);
 
 
-fourSaveBtn.click(function() {
-    console.log("more dots more dots");
-    let fourTasks = $('#4pm-tasks').val();
+// twelveSaveBtn.click(function() {
+//     console.log("All your base are belong to us");
+//     let twelveTasks = $('#12pm-tasks').val();
 
-    localStorage.setItem("fourScheduler", fourTasks);
-})
+//     localStorage.setItem("twelveScheduler", twelveTasks);
+// })
 
-let fourInfo = localStorage.getItem("fourScheduler");
-$('#4pm-tasks').append(fourInfo);
+// let twelveInfo = localStorage.getItem("twelveScheduler");
+// $('#12pm-tasks').append(twelveInfo);
+
+// oneSaveBtn.click(function() {
+//     console.log("Numa Numa");
+//     let oneTasks = $('#1pm-tasks').val();
+
+//     localStorage.setItem("oneScheduler", oneTasks);
+// })
+
+// let oneInfo = localStorage.getItem("oneScheduler");
+// $('#1pm-tasks').append(oneInfo);
 
 
-fiveSaveBtn.click(function() {
-    console.log("Leroy Jenkins");
-    let fiveTasks = $('#5pm-tasks').val();
+// twoSaveBtn.click(function() {
+//     console.log("The whistles go wooooo");
+//     let twoTasks = $('#2pm-tasks').val();
 
-    localStorage.setItem("fiveScheduler", fiveTasks);
-})
+//     localStorage.setItem("twoScheduler", twoTasks);
+// })
 
-let fiveInfo = localStorage.getItem("fiveScheduler");
-$('#5pm-tasks').append(fiveInfo);
+// let twoInfo = localStorage.getItem("twoScheduler");
+// $('#2pm-tasks').append(twoInfo);
+
+
+// threeSaveBtn.click(function() {
+//     console.log("get pitted, so pitted");
+//     let threeTasks = $('#3pm-tasks').val();
+
+//     localStorage.setItem("threeScheduler", threeTasks);
+// })
+
+// let threeInfo = localStorage.getItem("threeScheduler");
+// $('#3pm-tasks').append(threeInfo);
+
+
+// fourSaveBtn.click(function() {
+//     console.log("more dots more dots");
+//     let fourTasks = $('#4pm-tasks').val();
+
+//     localStorage.setItem("fourScheduler", fourTasks);
+// })
+
+// let fourInfo = localStorage.getItem("fourScheduler");
+// $('#4pm-tasks').append(fourInfo);
+
+
+// fiveSaveBtn.click(function() {
+//     console.log("Leroy Jenkins");
+//     let fiveTasks = $('#5pm-tasks').val();
+
+//     localStorage.setItem("fiveScheduler", fiveTasks);
+// })
+
+// let fiveInfo = localStorage.getItem("fiveScheduler");
+// $('#5pm-tasks').append(fiveInfo);
