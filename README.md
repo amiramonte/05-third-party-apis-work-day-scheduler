@@ -39,8 +39,8 @@ The following video demonstrates the application's functionality:
 
 ---
 
-
 ## Credits
+
 
 #### Alex Miramontes - Jr. Web Developer
 [GitHub](https://github.com/amiramonte)
