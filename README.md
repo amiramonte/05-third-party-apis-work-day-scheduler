@@ -1,4 +1,17 @@
-# 05-third-party-apis-work-day-scheduler
+# Work Day Scheduler 
+
+---
+
+## Table of Contents 
+
+- [Description](#description)
+- [Functionality](#functionality)
+- [Deployed Application](#deployed-application)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Credits](#credits)
+
+---
 
 ## Description
 
