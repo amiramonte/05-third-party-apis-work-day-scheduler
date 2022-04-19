@@ -16,18 +16,29 @@
 
 This application is a work day scheduling tool. This allows you to save tasks and events to each time block of a standard work day using the local storage of your machine. 
 
-This project was built to help me with the following:
-
-  * local storage, both saving information to, and recalling information from
-  * understand and use jQuery to dynamically update HTML and CSS
-  * understanding and using the moment.js library
-
+---
 
 ## Functionality
 
 The following video demonstrates the application's functionality:
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/work-day-scheduler.gif)
+
+---
+
+## Deployed Application
+
+[Work Day Scheduler deployed via Github Pages](https://amiramonte.github.io/third-party-apis-work-day-scheduler/)
+
+---
+
+## Technologies 
+
+- [jQuery](https://jquery.com/)
+- [Moment.js](https://momentjs.com/)
+
+---
+
 
 ## Credits
 
