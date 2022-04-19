@@ -8,7 +8,6 @@
 - [Functionality](#functionality)
 - [Deployed Application](#deployed-application)
 - [Technologies](#technologies)
-- [Installation](#installation)
 - [Credits](#credits)
 
 ---
@@ -24,9 +23,9 @@ This project was built to help me with the following:
   * understanding and using the moment.js library
 
 
-## Mock-Up
+## Functionality
 
-The following animation demonstrates the application functionality:
+The following video demonstrates the application's functionality:
 
 ![A user clicks on slots on the color-coded calendar and edits the events.](./assets/images/work-day-scheduler.gif)
 
